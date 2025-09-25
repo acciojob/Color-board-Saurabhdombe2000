@@ -1,22 +1,20 @@
-/*  your css code here. If applicable */
- body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      /* background: #111; */
-      margin: 0;
-      font-family: Arial, sans-serif;
-  .container {
-      display: grid;
-      grid-template-columns: repeat(40, 20px); /* 40 x 20 = 800 boxes */
-      grid-template-rows: repeat(20, 20px);
-      gap: 2px;
-
- .square {
-      width: 20px;
-      height: 20px;
-      background: #1d1d1d;
-      transition: background-color 1s ease; /* smooth fade */
-      border-radius: 3px;
-      cursor: pointer;
+body {
+        background: #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(40, 20px); /* 40 columns */
+        grid-template-rows: repeat(20, 20px); /* 20 rows */
+        gap: 2px;
+      }
+      .square {
+        width: 20px;
+        height: 20px;
+        background: #1d1d1d;
+        transition: background-color 1s ease; /* smooth fade */
+      }

@@ -1,31 +1,29 @@
- const container = document.querySelector(".container");
-    // const SQUARES = 800;
+let container = document.getElementById("container");
+      const colors = ["#e74c3c", "#8e44ad", "#3498db", "#e67e22", "#2ecc71"];
 
-    // Function to generate random color
-    function getRandomColor() {
-      const letters = "0123456789ABCDEF";
-      let color = "#";
-      for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+      //create 800 square
+      for (let i = 1; i <= 800; i++) {
+        const square = document.createElement("div");
+        square.classList.add("square");
+
+        //on hover
+        square.addEventListener("mouseover", () => setColor(square));
+        square.addEventListener("mouseout", () => delayRemoveColor(square));
+
+        container.appendChild(square);
       }
-      return color;
-    }
 
-    // Create 800 squares
-    for (let i = 0; i < 800; i++) {
-      const square = document.createElement("div");
-      square.classList.add("square");
-
-      // On hover, change color
-      square.addEventListener("mouseover", () => {
+      function setColor(ele) {
         const color = getRandomColor();
-        square.style.backgroundColor = color;
+        ele.style.backgroundColor = color;
+      }
 
-        // Reset color after 1 second
-        setTimeout(() => {
-          square.style.backgroundColor = "#1d1d1d";
-        }, 1000);
-      });
+      function delayRemoveColor(ele) {
+        setTimeout(()=>{
+          ele.style.backgroundColor='#1d1d1d';  // fade back after 1s
+        },1000)
+      }
 
-      container.appendChild(square);
-    }
+      function getRandomColor() {
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
